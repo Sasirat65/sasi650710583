@@ -1,0 +1,170 @@
+เปรียบเทียบความเหมือนและความแตกต่างในการเขียนโปรแกรมแบบ OOP ด้วยภาษา Java, C++, Python
+การเขียนโปรแกรมแบบ OOP ด้วยภาษา Java
+class Animal {
+    Animal() {
+        System.out.println("create animal");
+    }
+​
+    protected void finalize() {
+        System.out.println("delete animal");
+    }
+​
+    void sound() {
+        System.out.println("animal makes a sound");
+    }
+}
+​
+class Dog extends Animal {
+    Dog() {
+        System.out.println("dog");
+    }
+​
+    @Override
+    protected void finalize() {
+        System.out.println("delete dog");
+    }
+​
+    @Override
+    void sound() {
+        System.out.println("dog barks");
+    }
+}
+​
+class Cat extends Animal {
+    Cat() {
+        System.out.println("cat");
+    }
+​
+    @Override
+    protected void finalize() {
+        System.out.println("delete cat");
+    }
+​
+    @Override
+    void sound() {
+        System.out.println("cat meows");
+    }
+}
+​
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        Dog d = new Dog();
+        Cat c = new Cat();
+        a.sound();
+        d.sound();
+        c.sound();
+    }
+}
+
+การเขียนโปรแกรมแบบ OOP ด้วยภาษา C++
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    Animal() {
+        cout << "create animal" << endl;
+    }
+
+    virtual ~Animal() {
+        cout << "delete animal" << endl;
+    }
+
+    virtual void sound() {
+        cout << "animal makes a sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    Dog() {
+        cout << "dog" << endl;
+    }
+
+    ~Dog() {
+        cout << "delete dog" << endl;
+    }
+
+    void sound() override {
+        cout << "dog barks" << endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    Cat() {
+        cout << "cat" << endl;
+    }
+
+    ~Cat() {
+        cout << "delete cat" << endl;
+    }
+
+    void sound() override {
+        cout << "cat meows" << endl;
+    }
+};
+
+int main() {
+    Animal* a = new Animal();
+    Dog* d = new Dog();
+    Cat* c = new Cat();
+    a->sound();
+    d->sound();
+    c->sound();
+    delete a;
+    delete d;
+    delete c;
+
+    return 0;
+}
+การเขียนโปรแกรมแบบ OOP ด้วยภาษา Python
+class Animal:
+    def __init__(self):
+        print("create animal")
+
+    def __del__(self):
+        print("delete animal")
+
+    def sound(self):
+        print("animal makes a sound")
+
+
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+        print("dog")
+
+    def __del__(self):
+        print("delete dog")
+
+    def sound(self):
+        print("dog barks")
+
+
+class Cat(Animal):
+    def __init__(self):
+        super().__init__()
+        print("cat")
+
+    def __del__(self):
+        print("delete cat")
+
+    def sound(self):
+        print("cat meows")
+
+a = Animal()
+d = Dog()
+c = Cat()
+a.sound()
+d.sound()
+c.sound()
+
+del a
+del d
+del c
+
+เปรียบเทียบความเหมือนและความแตกต่างในการเขียนโปรแกรมแบบ OOP ด้วยภาษา Java, C++, Python
+ผลลัพธ์ของการรันโปรแกรมทั้งสามภาษาเหมือนกัน เพราะทั้งสามภาษามีการรองรับแนวคิดหลักของ OOP ได้แก่ Encapsulation, Inheritance, Abstraction, และ polymorphism เหมือนกัน ในการสร้างคลาสทั้งสามภาษามีการใช้ keyword class เช่นเดียวกัน
+ความแตกต่างของการเขียนโปรแกรมแบบ OOP ด้วยภาษา Java, C++, Python มีความแตกต่างที่ในภาษา Java ไม่มี destructor เนื่องจากใน Java มีการจัดการหน่วยความจำโดยอัตโนมัติด้วย Garbage Collection แต่ในภาษา C++ และ Python มีทั้ง destructor และ constructor โดย C++ มีการจัดการหน่วยความจำเองโดยใช้ new และ delete และในภาษา Python มีการจัดการหน่วยความจำโดยอัตโนมัติผ่าน Reference Counting และมีการใช้ keyword ในการประกาศ object และการสร้าง method ที่ต่างกัน
